@@ -74,8 +74,8 @@ class Tween(object):
                 result = self.injector(response.body,
                                        needed, request, response)
             else:
-                result = needed.render_topbottom_into_html(response.body)
-            response.body = ''
+                result = needed.render_topbottom_into_html(response.unicode_body)
+            response.text = ''
             response.write(result)
         fanstatic.del_needed()
         return response
